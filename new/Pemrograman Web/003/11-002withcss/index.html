@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>002 with CSS — Semantik HTML</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <h1>Belajar Elemen Semantik di HTML</h1>
+    <nav>
+      <a class="link" href="form.html">Tambah Data</a>
+      <a class="link" href="/data">Lihat Data</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="card">
+      <h2>Buah Favoritku</h2>
+      <ol>
+        <li>Jeruk</li>
+        <li>Durian</li>
+        <li>Pisang</li>
+        <li>Pepaya</li>
+        <li>Mangga</li>
+      </ol>
+
+      <h3 class="tulisan1">List dengan type alfabet</h3>
+      <ol type="a">
+        <li>Membuat List di HTML</li>
+        <li>Membuat Link di HTML</li>
+        <li>Membuat Tabel di HTML</li>
+      </ol>
+
+      <h3 class="tulisan1">List dengan type alfabet kapital</h3>
+      <ol type="A">
+        <li>Membuat List di HTML</li>
+        <li>Membuat Link di HTML</li>
+        <li>Membuat Tabel di HTML</li>
+      </ol>
+
+      <h3 class="tulisan2">List dengan type romawi</h3>
+      <ol type="i">
+        <li>Membuat List di HTML</li>
+        <li>Membuat Link di HTML</li>
+        <li>Membuat Tabel di HTML</li>
+      </ol>
+    </section>
+
+    <section class="card">
+      <h2>Bahasa pemrograman untuk dipelajari</h2>
+      <ul>
+        <li>Javascript</li>
+        <li>PHP</li>
+        <li>Java</li>
+        <li>Python</li>
+      </ul>
+
+      <h2>Framework untuk dipelajari</h2>
+      <ul type="circle">
+        <li>React</li>
+        <li>Svelte</li>
+        <li>Vue</li>
+      </ul>
+
+      <h2>Daftar istilah</h2>
+      <dl>
+        <dt>Kopi</dt>
+        <dd>Sebuah minuman berwarna hitam. Menurut pendapat lain kopi adalah air yang dimasak sampai gosong</dd>
+        <dt>Kopi Black Magic</dt>
+        <dd>Kopi hitam atau kopi tradisional yang dibuat dengan matra-mantra</dd>
+        <dt>White Coffee</dt>
+        <dd>Kopi berwarna putih, kandungan kafeinanya sedikit</dd>
+        <dt>Kopi++</dt>
+        <dd>Kopi ini mampu meningkatkan imajinasi 99 kali lipat</dd>
+      </dl>
+    </section>
+
+    <section class="card">
+      <h2>Tabel</h2>
+      <table class="data">
+        <tr>
+          <td>Baris 1 Kolom 1</td>
+          <td>Baris 1 Kolom 2</td>
+        </tr>
+        <tr>
+          <td>Baris 2 Kolom 1</td>
+          <td>Baris 2 Kolom 2</td>
+        </tr>
+      </table>
+      <br>
+      <table class="data">
+        <tr>
+          <th rowspan="2">Bulan</th>
+          <th colspan="2">Hasil Panen</th>
+        </tr>
+        <tr>
+          <th>Padi</th>
+          <th>Kacang</th>
+        </tr>
+        <tr><td>Januari</td><td>500 Kg</td><td>250 Kg</td></tr>
+        <tr><td>Februari</td><td>342 Kg</td><td>423 Kg</td></tr>
+        <tr><td>Maret</td><td>432 Kg</td><td>124 Kg</td></tr>
+        <tr><td>April</td><td>453 Kg</td><td>523 Kg</td></tr>
+      </table>
+    </section>
+
+    <section class="card media">
+      <div>
+        <h2>Video</h2>
+        <video controls width="640">
+          <source src="https://test-videos.co.uk/vids/bigbuckbunny/mp4/h264/360/Big_Buck_Bunny_360_10s_1MB.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div>
+        <h2>Audio</h2>
+        <audio controls>
+          <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+        </audio>
+      </div>
+    </section>
+  </main>
+
+  <footer>&copy; 2026 remake 002 with external CSS</footer>
+</body>
+</html>

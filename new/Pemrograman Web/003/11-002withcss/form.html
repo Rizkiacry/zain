@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tambah Data — 002 with CSS</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <h1>Tambah Data Mahasiswa</h1>
+    <nav>
+      <a class="link" href="index.html">Beranda</a>
+      <a class="link" href="/data">Lihat Data</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="card">
+      <form id="mhs-form" action="/submit" method="post">
+        <table class="form-table">
+          <tr>
+            <td width="140">Nama</td>
+            <td><input type="text" name="nama" placeholder="Nama lengkap"></td>
+          </tr>
+          <tr>
+            <td>Password</td>
+            <td><input type="password" name="password"></td>
+          </tr>
+          <tr>
+            <td>ID Mahasiswa</td>
+            <td><input type="number" name="id_mahasiswa"></td>
+          </tr>
+          <tr>
+            <td>Tanggal</td>
+            <td><input type="date" name="tanggal"></td>
+          </tr>
+          <tr>
+            <td>Jenis Kelamin</td>
+            <td>
+              <label><input type="radio" name="jk" value="laki-laki"> Laki-Laki</label>
+              <label><input type="radio" name="jk" value="perempuan"> Perempuan</label>
+            </td>
+          </tr>
+          <tr>
+            <td>Hobi</td>
+            <td>
+              <label><input type="checkbox" name="hobi" value="sepakbola"> Sepakbola</label>
+              <label><input type="checkbox" name="hobi" value="menari"> Menari</label>
+              <label><input type="checkbox" name="hobi" value="menyanyi"> Menyanyi</label>
+              <label><input type="checkbox" name="hobi" value="ngoding"> Ngoding</label>
+            </td>
+          </tr>
+          <tr>
+            <td>Organisasi</td>
+            <td>
+              <select name="organisasi">
+                <option>DPM KEMA IT-PLN</option>
+                <option>BEM KEMA IT-PLN</option>
+                <option>HIMTI</option>
+                <option>Developer &amp; IT Club</option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <td>Alamat</td>
+            <td><textarea name="alamat" placeholder="Alamat lengkap"></textarea></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td>
+              <input type="submit" value="Simpan">
+              <input type="reset" value="Reset">
+              <input type="button" value="Kembali" onclick="location.href='index.html'">
+            </td>
+          </tr>
+        </table>
+      </form>
+    </section>
+  </main>
+
+  <footer>&copy; 2026 remake 002 with external CSS</footer>
+  <script>
+    (function () {
+      var form = document.getElementById('mhs-form');
+      var q = new URLSearchParams(location.search).get('dbport');
+      var dbport = q || '8001';
+      if (location.port === '8000') form.action = 'http://127.0.0.1:' + dbport + '/submit';
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,18 @@
+.tulisan1 {
+    color: rgb(17, 128, 202);
+    font-family: sans-serif;
+    font-style: normal;
+}
+
+.tulisan2 {
+    color: green;
+    font-size: 24pt;
+    font-style: italic;
+}
+
+.tulisan3 {
+    color: rgb(195, 90, 153);
+    font-weight: bold;
+    font-style: oblique;
+}
+

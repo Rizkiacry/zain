@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tambah Data</title>
+    <link href="css/style.css" rel="stylesheet">
+  </head>
+  <body>
+    <h3>Tambah Data</h3>
+
+    <form id="mhs-form" action="/submit" method="post">
+      <table>
+        <tr>
+          <td width="120">Nama</td>
+          <td><input type="text" name="nama"></td>
+        </tr>
+        <tr>
+          <td>Password</td>
+          <td><input type="password" name="password"></td>
+        </tr>
+        <tr>
+          <td>ID Mahasiswa</td>
+          <td><input type="number" name="id_mahasiswa"></td>
+        </tr>
+        <tr>
+          <td>Tanggal</td>
+          <td><input type="date" name="tanggal"></td>
+        </tr>
+        <tr>
+          <td>Jenis Kelamin</td>
+          <td>
+            <input type="radio" name="jk" value="laki-laki"> Laki-Laki
+            <input type="radio" name="jk" value="perempuan"> Perempuan
+          </td>
+        </tr>
+        <tr>
+          <td>Hobi</td>
+          <td>
+            <input type="checkbox" name="hobi" value="sepakbola"> Sepakbola
+            <input type="checkbox" name="hobi" value="menari"> Menari
+            <input type="checkbox" name="hobi" value="menyanyi"> Menyanyi
+            <input type="checkbox" name="hobi" value="ngoding"> Ngoding
+          </td>
+        </tr>
+        <tr>
+          <td>Organisasi</td>
+          <td>
+            <select name="organisasi">
+              <option>DPM KEMA IT-PLN</option>
+              <option>BEM KEMA IT-PLN</option>
+              <option>HIMTI</option>
+              <option>Developer & IT Club</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td>Alamat</td>
+          <td><textarea name="alamat"></textarea></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>
+            <input type="submit" value="Simpan">
+            <input type="reset" value="Reset">
+            <input type="button" value="Kembali">
+          </td>
+        </tr>
+      </table>
+    </form>
+    <script>
+      // Opened via `just db` (any port) -> same-origin /submit just works.
+      // Opened via `just serve` (:8000, static-only) -> forward to `just db`.
+      // Default db port 8001, override with form.html?dbport=8002
+      (function () {
+        var form = document.getElementById('mhs-form');
+        var q = new URLSearchParams(location.search).get('dbport');
+        var dbport = q || '8001';
+        if (location.port === '8000') form.action = 'http://127.0.0.1:' + dbport + '/submit';
+      })();
+    </script>
+  </body>
+</html>

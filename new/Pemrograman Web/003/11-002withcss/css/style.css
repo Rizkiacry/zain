@@ -1,0 +1,117 @@
+/* 11-002withcss — external CSS untuk remake 002 */
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: sans-serif;
+  background: #f1f5f9;
+  color: #1e293b;
+  line-height: 1.6;
+}
+
+/* header / nav — materi hyperlink + color */
+.site-header {
+  background: #1e3a8a;
+  color: white;
+  padding: 20px;
+}
+
+.site-header h1 {
+  margin: 0 0 10px 0;
+}
+
+.site-header nav a,
+.btn-link {
+  display: inline-block;
+  font-size: 14pt;
+  color: #bfdbfe;
+  text-decoration: none;
+  background: rgba(255,255,255,.12);
+  padding: 8px 16px;
+  border-radius: 8px;
+}
+
+.site-header nav a:link { color: #bfdbfe; }
+.site-header nav a:hover {
+  color: white;
+  background: rgba(255,255,255,.25);
+}
+.site-header nav a:active { color: #86efac; }
+
+.container {
+  max-width: 900px;
+  margin: 20px auto;
+  padding: 0 20px 40px 20px;
+}
+
+/* card — materi margin-padding + background */
+.card {
+  background: white;
+  margin: 20px 0;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,.08);
+}
+
+.card h2 {
+  margin-top: 0;
+  color: rgb(17, 128, 202);
+  border-bottom: 2px solid #e2e8f0;
+  padding-bottom: 8px;
+}
+
+/* font demo */
+.tulisan1 { font-style: normal; }
+.tulisan2 { font-size: 14pt; font-style: italic; color: green; }
+
+/* list */
+ol, ul { background: #f8fafc; padding: 12px 12px 12px 36px; border-radius: 8px; }
+dl dt { font-weight: bold; color: #1e3a8a; }
+dl dd { margin: 0 0 10px 0; color: #475569; }
+
+/* tabel */
+table.data {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+table.data th, table.data td {
+  border: 1px solid #cbd5e1;
+  padding: 10px;
+}
+table.data th { background: #1e3a8a; color: white; }
+table.data tr:nth-child(even) td { background: #f8fafc; }
+table.data tr:hover td { background: #fef9c3; }
+
+/* media */
+.media { display: flex; gap: 20px; flex-wrap: wrap; }
+.media video, .media audio { max-width: 100%; border-radius: 8px; }
+
+/* form */
+.form-table { width: 100%; }
+.form-table td { padding: 8px; vertical-align: top; }
+input[type="text"], input[type="password"], input[type="number"],
+input[type="date"], select, textarea {
+  width: 100%;
+  max-width: 320px;
+  padding: 8px 10px;
+  border: 1px solid #94a3b8;
+  border-radius: 6px;
+}
+textarea { min-height: 80px; }
+input[type="submit"], input[type="reset"], input[type="button"] {
+  padding: 8px 18px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+input[type="submit"] { background: rgb(45, 176, 82); color: white; }
+input[type="reset"] { background: #e2e8f0; }
+input[type="button"] { background: #1e3a8a; color: white; }
+input[type="submit"]:hover { background: #15803d; }
+
+footer {
+  text-align: center;
+  padding: 16px;
+  color: #64748b;
+}
