@@ -1,0 +1,139 @@
+﻿<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Formulir Pengaduan Gangguan Listrik</title>
+    <link rel="icon" type="image/png" href="./logo.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+      * {
+        font-family: monospace;
+      }
+      #form-pengaduan-wrapper {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container py-4">
+      <h2 class="text-center mb-4">Formulir Pengaduan Gangguan Listrik</h2>
+
+      <section class="mb-4" id="verifikasi-id">
+        <label for="id-pelanggan" class="form-label">Nomor Meter Pelanggan / ID Pel</label>
+        <div class="input-group">
+          <input type="text" class="form-control" id="id-pelanggan" placeholder="Masukkan ID Pelanggan">
+          <button type="button" class="btn btn-success" id="btn-verifikasi">Verifikasi</button>
+        </div>
+        <div id="pesan-verifikasi" class="mt-2"></div>
+      </section>
+
+      <form id="form-pengaduan-wrapper" onsubmit="return submitPengaduan(event)">
+        <p id="pesan-sukses" class="fw-bold">Silakan masukan pada form dibawah ini</p>
+
+        <div class="row g-3 mb-3">
+          <div class="col-md-6">
+            <label class="form-label" for="nama-pelapor">Nama Pelapor</label>
+            <input type="text" class="form-control" id="nama-pelapor" required minlength="3">
+            <div class="invalid-feedback">Nama pelapor wajib diisi minimal 3 karakter.</div>
+          </div>
+          <div class="col-md-6">
+            <label class="form-label" for="nomor-meter">Nomor Meter Pelanggan</label>
+            <input type="text" class="form-control" id="nomor-meter" value="123456" readonly>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="alamat">Alamat Lokasi Gangguan</label>
+          <input type="text" class="form-control" id="alamat" required>
+          <div class="invalid-feedback">Alamat lokasi gangguan wajib diisi.</div>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="deskripsi">Deskripsi Gangguan</label>
+          <textarea class="form-control" id="deskripsi" rows="3" required></textarea>
+          <div class="invalid-feedback">Deskripsi gangguan wajib diisi.</div>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="telepon">Nomor Telepon Pelapor</label>
+          <input type="tel" class="form-control" id="telepon" required inputmode="numeric"
+                 pattern="[0-9]+" title="Hanya menerima input angka numerik" onkeydown="return angkaSaja(event)">
+          <div class="invalid-feedback">Nomor telepon wajib diisi (angka).</div>
+        </div>
+
+        <div class="row g-3 mb-3">
+          <div class="col-md-6">
+            <label class="form-label" for="tanggal">Tanggal Gangguan</label>
+            <input type="date" class="form-control" id="tanggal" required>
+            <div class="invalid-feedback">Tanggal gangguan wajib diisi.</div>
+          </div>
+          <div class="col-md-6">
+            <label class="form-label" for="jam">Waktu Gangguan</label>
+            <input type="time" class="form-control" id="jam" required>
+            <div class="invalid-feedback">Waktu gangguan wajib diisi.</div>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="foto">Unggah Foto Gangguan (opsional, .jpg / .png)</label>
+          <input type="file" class="form-control" id="foto" accept=".jpg,.png">
+        </div>
+
+        <button type="submit" class="btn btn-primary">Kirim Pengaduan</button>
+      </form>
+    </div>
+
+    <script>
+      var ID_PELANGGAN_BENAR = "123456";
+
+      document.getElementById("btn-verifikasi").addEventListener("click", verifikasi);
+
+      document.getElementById("id-pelanggan").addEventListener("keydown", function (e) {
+        if (e.key === "Enter") {
+          e.preventDefault();
+          verifikasi();
+        }
+      });
+
+      function verifikasi() {
+        var nilai = document.getElementById("id-pelanggan").value.trim();
+        var pesan = document.getElementById("pesan-verifikasi");
+        var formWrapper = document.getElementById("form-pengaduan-wrapper");
+
+        if (nilai === ID_PELANGGAN_BENAR) {
+          pesan.innerHTML =
+            '<div class="alert alert-success">Silakan masukan pada form dibawah ini</div>';
+          formWrapper.style.display = "block";
+        } else {
+          pesan.innerHTML =
+            '<div class="alert alert-danger">ID Pelanggan Anda tidak ditemukan</div>';
+          formWrapper.style.display = "none";
+        }
+      }
+
+      function angkaSaja(e) {
+        var charCode = e.which ? e.which : e.keyCode;
+        if (
+          charCode > 31 &&
+          (charCode < 48 || charCode > 57)
+        ) {
+          return false;
+        }
+        return true;
+      }
+
+      function submitPengaduan(e) {
+        e.preventDefault();
+        var form = document.getElementById("form-pengaduan-wrapper");
+        if (form.checkValidity()) {
+          form.classList.add("was-validated");
+          alert("Pesan telah disimpan");
+        } else {
+          form.classList.add("was-validated");
+        }
+        return false;
+      }
+    </script>
+  </body>
+</html>
