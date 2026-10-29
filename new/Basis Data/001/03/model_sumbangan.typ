@@ -12,13 +12,13 @@
 
 #let num(n) = box(
   fill: rgb("#1f3a5f"), inset: 3.5pt, radius: 50%, outset: 2pt,
-  text(fill: white, size: 8pt, weight: "bold", n),
+  text(fill: white, size: 8pt, weight: "bold", str(n)),
 )
 #let sect(n, title, en) = block(
   above: 0.7em, below: 0.3em,
   [#num(n) #h(3pt) *#title* #text(size: 8.2pt, style: "italic", fill: rgb("#5a6472"), en)],
 )
-#let rel = text(weight: "bold", size: 8.6pt)
+#let rel(body) = text(weight: "bold", size: 8.6pt, body)
 
 // ---------- Header ----------
 #block(
@@ -61,13 +61,13 @@ Sistem yang dimodelkan adalah *Sistem Sumbangan*: layanan pencatatan sumbangan k
 #table(
   columns: (auto, 1fr, auto),
   table.header([*Relation (draft)*, *Field utama*, *Makna fakta ↔ kalimat bisnis*]),
-  [#rel[DONATUR]\ #(text(size: 8pt)[(id_donatur, nama, no_hp, email, is_anonim)]],
+  [#rel[DONATUR]\ #(text(size: 8pt)[(id_donatur, nama, no_hp, email, is_anonim)])],
   [id_donatur],
   [Kalimat 1, 6 — data pemberi sumbangan, disimpan sekali],
-  [#rel[PROGRAM_SUMBANGAN]\ #(text(size: 8pt)[(id_program, nama_program, target_dana)]],
+  [#rel[PROGRAM_SUMBANGAN]\ #(text(size: 8pt)[(id_program, nama_program, target_dana)])],
   [id_program],
   [Kalimat 2 — daftar tujuan/penempatan sumbangan],
-  [#rel[SUMBANGAN]\ #(text(size: 8pt)[(id_sumbangan, id_donatur, id_program, tanggal, nominal, metode, status_verifikasi, nomor_kuitansi)]],
+  [#rel[SUMBANGAN]\ #(text(size: 8pt)[(id_sumbangan, id_donatur, id_program, tanggal, nominal, metode, status_verifikasi, nomor_kuitansi)])],
   [id_sumbangan],
   [Kalimat 1, 2, 3, 4, 6 — transaksi + verifikasi + kuitansi + anonim],
   [#rel[PENGGUNAAN_DANA]\ #(text(size: 8pt)[(id_pengeluaran, id_program, tanggal, nominal, keterangan)]),
